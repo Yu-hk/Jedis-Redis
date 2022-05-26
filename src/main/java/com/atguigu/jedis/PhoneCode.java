@@ -25,7 +25,6 @@ public class PhoneCode {
     public static void verifyCode(String Phone){
 
         Jedis jedis = new Jedis("192.168.163.131",6379);
-        jedis.auth("yu149286");
 
         String countKey = "VerifyCode"+Phone+":count";
         String codeKey = "VerifyCode"+Phone+":code";
@@ -49,7 +48,6 @@ public class PhoneCode {
     public static void CheckCode(String Phone,String Code){
 
         Jedis jedis = new Jedis("192.168.163.131",6379);
-        jedis.auth("yu149286");
 
         String codeKey = "VerifyCode"+Phone+":code";
         String redisCode = jedis.get(codeKey);
